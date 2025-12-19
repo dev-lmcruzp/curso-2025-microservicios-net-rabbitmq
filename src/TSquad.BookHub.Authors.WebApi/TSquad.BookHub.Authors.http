@@ -1,0 +1,6 @@
+@TSquad.BookHub.Authors_HostAddress = http://localhost:5234
+
+GET {{TSquad.BookHub.Authors_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

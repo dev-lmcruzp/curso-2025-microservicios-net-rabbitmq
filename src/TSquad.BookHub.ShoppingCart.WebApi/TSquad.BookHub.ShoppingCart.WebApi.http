@@ -1,0 +1,6 @@
+@TSquad.BookHub.ShoppingCart.WebApi_HostAddress = http://localhost:5179
+
+GET {{TSquad.BookHub.ShoppingCart.WebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

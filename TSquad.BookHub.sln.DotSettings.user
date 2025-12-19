@@ -1,0 +1,17 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=7020124F_002D9FFC_002D4AC3_002D8F3D_002DAAB8E0240759_002Ff_003ADbContext_002Ecs_002Fl_003A_002E_002E_003F_002E_002E_003F_002E_002E_003F_002E_002E_003F_002E_002E_003FLibrary_003FApplication_0020Support_003FJetBrains_003FRider2025_002E3_003Fresharper_002Dhost_003FSourcesCache_003F78392888e95a4b7c90c6abf02df21723fc0eb7a316153733fd54a524ce2d2f3_003FDbContext_002Ecs/@EntryIndexedValue">ForceIncluded</s:String>
+	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=7020124F_002D9FFC_002D4AC3_002D8F3D_002DAAB8E0240759_002Ff_003ADebugger_002Ecs_002Fl_003A_002E_002E_003F_002E_002E_003F_002E_002E_003F_002E_002E_003F_002E_002E_003FLibrary_003FApplication_0020Support_003FJetBrains_003FRider2025_002E3_003Fresharper_002Dhost_003FSourcesCache_003Ff9d2f95d72fa884d8b6ddefc717c56da3657fbb2d5fb683656c3589eb6587_003FDebugger_002Ecs/@EntryIndexedValue">ForceIncluded</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=67ef34ee_002Db6a0_002D4d76_002D8964_002D3c07c9b89410/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="GetBooks" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::A22F72A8-6166-4567-8364-3B55D8E3BA32::net10.0::TSquad.BookHub.Books.Tests.BookServiceTest.GetBooks&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::A22F72A8-6166-4567-8364-3B55D8E3BA32::net10.0::TSquad.BookHub.Books.Tests.BookServiceTest.GetBook&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=d3f6c46a_002D6f99_002D4c66_002Dba5c_002Dc9338e75f3e8/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="GetBook" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::A22F72A8-6166-4567-8364-3B55D8E3BA32::net10.0::TSquad.BookHub.Books.Tests.BookServiceTest.GetBook&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::A22F72A8-6166-4567-8364-3B55D8E3BA32::net10.0::TSquad.BookHub.Books.Tests.BookServiceTest.Add&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::A22F72A8-6166-4567-8364-3B55D8E3BA32::net10.0::TSquad.BookHub.Books.Tests.BookServiceTest.GetBooks&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	</wpf:ResourceDictionary>
