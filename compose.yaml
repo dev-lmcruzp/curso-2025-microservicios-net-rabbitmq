@@ -1,0 +1,64 @@
+﻿services:
+  tsquad.bookhub.authors:
+    image: tsquad.bookhub.authors.webapi
+    build:
+      context: .
+      dockerfile: src/TSquad.BookHub.Authors.WebApi/Dockerfile
+    environment:
+        - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "6104:8080"
+
+  tsquad.bookhub.books:
+    image: tsquad.bookhub.books.webapi
+    build:
+      context: .
+      dockerfile: src/TSquad.BookHub.Books.WebApi/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "6105:8080"
+
+  tsquad.bookhub.shoppingcart:
+    image: tsquad.bookhub.shoppingcart.webapi
+    build:
+      context: .
+      dockerfile: src/TSquad.BookHub.ShoppingCart.WebApi/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - Services__Books=http://tsquad.bookhub.books
+      - Services__Authors=http://tsquad.bookhub.authors
+    depends_on:
+      - tsquad.bookhub.books
+      - tsquad.bookhub.authors
+    ports:
+      - "6106:8080"
+        
+  tsquad.bookhub.api.gateway:
+    image: tsquad.bookhub.api.gateway
+    build:
+      context: .
+      dockerfile: src/TSquad.BookHub.Api.Gateway/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      - tsquad.bookhub.books
+    ports:
+      - "6107:8080"
+      
+networks:
+  default:
+    name: ms.tsquad.bookhub
+    external: true
+      
+
+# add un network
+# docker network create ms.tsquad.bookhub
+
+# add db postgres to network
+# docker network connect ms.tsquad.bookhub postgres-18-new
+# Falta agregar a rabbit a la red
+# docker run -d --hostname my-rabbit-server --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:4-management
+  
+  # docker run -d --hostname my-rabbit --name some-rabbit rabbitmq:3
+  # docker run --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:4-management

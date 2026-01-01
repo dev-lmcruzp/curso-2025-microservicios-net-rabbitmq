@@ -107,7 +107,7 @@ public class BookServiceTest
 
         var mapper = mapConfig.CreateMapper();
         var moqUnitOfWork = CreateUnitOfWork();
-        var handler = new CreateBookHandler(moqUnitOfWork.Object, mapper);
+        var handler = new CreateBookHandler(moqUnitOfWork.Object, mapper, null);
         var command = A.New<CreateBookCommand>();
         var book = await handler.Handle(command, CancellationToken.None);
         

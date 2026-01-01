@@ -1,10 +1,21 @@
+using MediatR;
 using TSquad.BookHub.Books.WebApi.Endpoints;
 using TSquad.BookHub.Books.WebApi.ExtensionInjections;
+using TSquad.BookHub.RabbitMQ.Bus.EventBus;
+using TSquad.BookHub.RabbitMQ.Bus.Implement;
 
 var builder = WebApplication.CreateBuilder(args);
 
 var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
 builder.Configuration.AddJsonFile($"appsettings.{env}.json", optional: true);
+
+
+// builder.Services.AddTransient<IEventBus, RabbitEventBus>();
+builder.Services.AddSingleton<IEventBus, RabbitEventBus>(sp =>
+{
+    var scf = sp.GetRequiredService<IServiceScopeFactory>();
+    return new RabbitEventBus(sp.GetService<IMediator>()!, scf);
+});
 
 
 builder.Services.AddApplicationConfigureServices();

@@ -3,6 +3,8 @@ using MediatR;
 using TSquad.BookHub.Books.WebApi.Application.Dto;
 using TSquad.BookHub.Books.WebApi.Application.Interface.Persistence;
 using TSquad.BookHub.Books.WebApi.Domain.Entities;
+using TSquad.BookHub.RabbitMQ.Bus.EventBus;
+using TSquad.BookHub.RabbitMQ.Bus.EventQueue;
 
 namespace TSquad.BookHub.Books.WebApi.Application.UseCases.Books.Commands.CreateBookCommand;
 
@@ -17,11 +19,13 @@ public class CreateBookHandler : IRequestHandler<CreateBookCommand, BookDto>
 {
     private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
+    private readonly IEventBus _eventBus;
 
-    public CreateBookHandler(IUnitOfWork unitOfWork, IMapper mapper)
+    public CreateBookHandler(IUnitOfWork unitOfWork, IMapper mapper, IEventBus eventBus)
     {
         _unitOfWork = unitOfWork;
         _mapper = mapper;
+        _eventBus = eventBus;
     }
 
     public async Task<BookDto> Handle(CreateBookCommand request, CancellationToken cancellationToken)
@@ -33,6 +37,10 @@ public class CreateBookHandler : IRequestHandler<CreateBookCommand, BookDto>
             .AddAsync(newBook, cancellationToken);
 
         await _unitOfWork.SaveChangesAsync(cancellationToken);
+
+        _eventBus.Publish(new EmailEventQueue("lcruz@yopmail.com",
+            request.Title,
+            "Este es un contenido de ejemplo"));
         return _mapper.Map<BookDto>(newBook);
     }
 }

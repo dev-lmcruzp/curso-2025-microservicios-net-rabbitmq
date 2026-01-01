@@ -14,6 +14,11 @@ builder.Services.AddInfrastructureConfigureService();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
+Console.WriteLine("\n\n\n");
+Console.WriteLine("*****************************");
+Console.WriteLine(builder.Configuration["Services:Books"]!);
+Console.WriteLine("*****************************");
+Console.WriteLine("\n\n\n");
 builder.Services.AddHttpClient("BooksApi", cfg =>
 {
     cfg.BaseAddress = new Uri(builder.Configuration["Services:Books"]!);

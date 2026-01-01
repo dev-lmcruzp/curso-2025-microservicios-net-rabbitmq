@@ -1,0 +1,106 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/books",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "tsquad.bookhub.books",
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/books",
+      "UpstreamHttpMethod": [
+        "GET",
+        "POST"
+      ],
+      "Key": "books"
+    },
+    {
+      "DownstreamPathTemplate": "/api/books/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "tsquad.bookhub.books",
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/books/{id}",
+      "UpstreamHttpMethod": [
+        "GET",
+        "PUT",
+        "DELETE"
+      ],
+      "DelegatingHandlers": ["BookHandler"]
+    },
+    {
+      "DownstreamPathTemplate": "/api/authors",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "tsquad.bookhub.authors",
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/authors",
+      "UpstreamHttpMethod": [
+        "GET",
+        "POST"
+      ],
+      "Key": "authors"
+    },
+    {
+      "DownstreamPathTemplate": "/api/authors/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "tsquad.bookhub.authors",
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/authors/{id}",
+      "UpstreamHttpMethod": [
+        "GET",
+        "PUT",
+        "DELETE"
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/shopping-carts",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "tsquad.bookhub.shoppingcart",
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/shopping-carts",
+      "UpstreamHttpMethod": [
+        "POST"
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/shopping-carts/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "tsquad.bookhub.shoppingcart",
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/shopping-carts/{id}",
+      "UpstreamHttpMethod": [
+        "GET"
+      ]
+    }
+  ],
+  "Aggregates": [
+    {
+      "RouteKeys": [
+        "authors",
+        "books"
+      ],
+      "UpstreamPathTemplate": "/book-author"
+    }
+  ]
+}

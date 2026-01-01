@@ -45,7 +45,7 @@ public class ReadRepository<TEntity, TId> : IReadRepository<TEntity, TId> where 
     {
         var query = _context.Set<TEntity>().AsQueryable();
         ApplyAsNoTrackingInclude(query, asNoTracking, includeProperties);
-        return await query.FirstOrDefaultAsync(x => x.Id.Equals(id), cancellationToken) ;
+        return await query.FirstOrDefaultAsync(x => x.Id!.Equals(id), cancellationToken) ;
     }
     
     private void ApplyAsNoTrackingInclude(IQueryable<TEntity> query, bool asNoTracking, Expression<Func<TEntity, object>>[] includeProperties)
